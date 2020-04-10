@@ -1,3 +1,5 @@
+import random
+
 def problem_0():
     target = "stressed"
     return target[::-1]
@@ -59,3 +61,30 @@ def problem_6():
 
     print(f"se in X is -> {'se' in a_bi}")
     print(f"se in Y is -> {'se' in b_bi}")
+
+
+def problem_7(x, y, z):
+    return f"{x}時の{y}は{z}"
+
+
+def clipher(s):
+    result = ""
+    for c in s:
+        if c.islower():
+            result += chr(219 - ord(c))
+        else:
+            result += c
+    return result
+
+
+def probelem_9(s):
+    def _process_word(w):
+        if len(w) <= 4:
+            return w
+
+        tmp_w = w[1:-1]
+        return "".join(random.sample(tmp_w, len(tmp_w)))
+
+    words = s.split()
+    words = [_process_word(w) for w in words]
+    return words
